@@ -51,7 +51,7 @@ public class SqMaxTest {
         int inThird = 6;
         int inFourth = 6;
         int expected = 6;
-        int out = ru.job4j.condition.SqMax.max(inFirst, inSecond, inThird, inFourth);
+        int out = SqMax.max(inFirst, inSecond, inThird, inFourth);
         Assert.assertEquals(expected, out);
     }
 }

@@ -9,7 +9,7 @@ public class ConverterTest {
     public void rubleToEuro() {
         int in = 140;
         int expected = 2;
-        int out = ru.job4j.converter.Converter.rubleToEuro(in);
+        int out = Converter.rubleToEuro(in);
         Assert.assertEquals(expected, out);
     }
 
@@ -17,7 +17,7 @@ public class ConverterTest {
     public void rubleToDollar() {
         int in = 120;
         int expected = 2;
-        int out = ru.job4j.converter.Converter.rubleToDollar(in);
+        int out = Converter.rubleToDollar(in);
         Assert.assertEquals(expected, out);
     }
 
@@ -25,7 +25,7 @@ public class ConverterTest {
     public void euroToRubles() {
         int in = 2;
         int expected = 140;
-        int out = ru.job4j.converter.Converter.euroToRubles(in);
+        int out = Converter.euroToRubles(in);
         Assert.assertEquals(expected, out);
     }
 
@@ -33,7 +33,7 @@ public class ConverterTest {
     public void dollarToRubles() {
         int in = 2;
         int expected = 120;
-        int out = ru.job4j.converter.Converter.dollarToRubles(in);
+        int out = Converter.dollarToRubles(in);
         Assert.assertEquals(expected, out);
     }
 }

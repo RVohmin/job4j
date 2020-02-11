@@ -10,7 +10,7 @@ public class ArrayDefinition {
         names[1] = "Ivan Ivanov";
         names[2] = "Petr Ivanov";
         names[3] = "Ivan Petrov";
-        for(String item : names) {
+        for (String item : names) {
             System.out.println(item);
         }
     }

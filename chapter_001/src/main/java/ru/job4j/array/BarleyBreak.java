@@ -7,10 +7,10 @@ public class BarleyBreak {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 array[i][j] = j + i + k + 1;
-                System.out.println(array[i][j]);
+                System.out.print(array[i][j]);
             }
             k += 2;
+            System.out.println();
         }
-
     }
 }

@@ -4,13 +4,23 @@ public class Defragment {
     public static String[] compress(String[] array) {
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
-                for (int j = index; j < array.length; j++) {
+                // пробуем while, не видим преимуществ - больше кода
+                int j = index;
+                while (j < array.length) {
                     if (array[j] != null) {
                         array[index] = array[j];
                         array[j] = null;
                         break;
                     }
+                    j++;
                 }
+//                for (int j = index; j < array.length; j++) {
+//                    if (array[j] != null) {
+//                        array[index] = array[j];
+//                        array[j] = null;
+//                        break;
+//                    }
+//                }
             }
             System.out.print(array[index] + " ");
         }

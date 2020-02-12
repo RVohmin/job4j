@@ -4,7 +4,6 @@ public class Defragment {
     public static String[] compress(String[] array) {
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
-                // пробуем while, не видим преимуществ - больше кода
                 int j = index;
                 while (j < array.length) {
                     if (array[j] != null) {

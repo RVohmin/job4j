@@ -34,7 +34,7 @@ public class Merge {
         Merge process = new Merge();
         int[] rsl = process.merge(
                 new int[] {1, 3, 5},
-                new int[] {2, 4}
+                new int[] {2, 4, 6, 7}
         );
         System.out.println(Arrays.toString(rsl));
     }

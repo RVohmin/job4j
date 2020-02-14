@@ -1,0 +1,76 @@
+package ru.job4j.tracker;
+
+import org.junit.Test;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
+
+public class TrackerTest {
+
+    /**
+     * тест проверяет добавление в массив tracker, использует поиск по Id
+     */
+    @Test //метод add
+    public void whenAddNewItemThenTrackerHasSameItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test1");
+        tracker.add(item);
+        Item result = tracker.findById(item.getId());
+        assertThat(result.getName(), is(item.getName()));
+    }
+    @Test // проверяем метод поиска findAll
+    public void whenAdd5ItemsAndUniqueIDForEachThenTrue() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1");
+        Item item2 = new Item("test2");
+        Item item3 = new Item("test4");
+        Item item4 = new Item("test2");
+        Item item5 = new Item("test2");
+
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        tracker.add(item4);
+        tracker.add(item5);
+        Item[] expected = {item1, item2, item3, item4, item5};
+        Item[] result = tracker.findAll();
+        assertThat(expected, is(result));
+    }
+    @Test // проверяем метод поиска по имени
+    public void whenAdd5ItemsAnd3SameNamesThenTrackerHas3ItemBySameName() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1");
+        Item item2 = new Item("test2");
+        Item item3 = new Item("test4");
+        Item item4 = new Item("test2");
+        Item item5 = new Item("test2");
+
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        tracker.add(item4);
+        tracker.add(item5);
+        Item[] expected = {item2, item4, item5};
+        Item[] result = tracker.findByName("test2");
+        assertThat(expected, is(result));
+    }
+
+    @Test // проверяем метод findAll
+    public void whenAdd5ItemsAddThenTheyAllInTracker() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1");
+        Item item2 = new Item("test2");
+        Item item3 = new Item("test4");
+        Item item4 = new Item("test2");
+        Item item5 = new Item("test2");
+
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        tracker.add(item4);
+        tracker.add(item5);
+        Item result = tracker.findById(item5.getId());
+        assertThat(item5, is(result));
+    }
+}

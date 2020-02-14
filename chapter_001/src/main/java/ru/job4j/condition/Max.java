@@ -19,8 +19,7 @@ public class Max {
      * @return max of three numbers
      */
     public static int max(int first, int second, int third) {
-        int left = max(first, second);
-        return left > third ? left : third;
+       return max(max(first, second), third);
     }
 
     /**
@@ -34,6 +33,6 @@ public class Max {
     public static int max(int first, int second, int third, int forth) {
         int left = max(first, second);
         int right = max(third, forth);
-        return left > right ? left : right;
+        return max(max(first, second), max(third, forth));
     }
 }

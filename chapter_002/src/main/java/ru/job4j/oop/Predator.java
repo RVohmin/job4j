@@ -8,11 +8,11 @@ public class Predator extends Animal {
     }
 
     public Predator(String name) {
-        //super(name);
+        super(name);
         System.out.println("Predator " + name);
     }
     public static void main(String[] args) {
-        //Predator predator = new Predator();
+        Predator predator = new Predator();
         Predator predator2 = new Predator("lion");
 
     }

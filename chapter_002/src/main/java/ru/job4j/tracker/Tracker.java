@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 import java.util.Random;
-
 public class Tracker {
     /**
      * Массив для хранения заявок.
@@ -77,7 +76,7 @@ public class Tracker {
      * @return element of Item[] with search id
      */
     public Item findById(String id) {
-        return items[indexOf(id)];
+        return indexOf(id) != -1 ? items[indexOf(id)] : null;
     }
 
     private int indexOf(String id) {
@@ -91,10 +90,24 @@ public class Tracker {
         return rsl;
     }
 
-    public boolean replace(String id, Item item) {
+    /**
+     *
+     * @param id id
+     * @param item item
+     */
+    public void replace(String id, Item item) {
         int index = indexOf(id);
         items[index] = item;
         items[index].setId(id);
-        return items[index] == item && items[index].getId().equals(id);
+    }
+
+    /**
+     * Метод удаления элемента из массива
+     * @param id id
+     */
+    public void delete(String id) {
+        System.arraycopy(items, indexOf(id) + 1, items, indexOf(id), position - indexOf(id));
+        items[position] = null;
+        position--;
     }
 }

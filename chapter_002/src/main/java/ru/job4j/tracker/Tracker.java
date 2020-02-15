@@ -93,19 +93,30 @@ public class Tracker {
      * @param id id
      * @param item item
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        } else {
         items[index] = item;
         items[index].setId(id);
+        return true;
+        }
     }
 
     /**
      * Метод удаления элемента из массива
      * @param id id
      */
-    public void delete(String id) {
-        System.arraycopy(items, indexOf(id) + 1, items, indexOf(id), position - indexOf(id));
-        items[position] = null;
-        position--;
+    public boolean delete(String id) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        } else {
+            System.arraycopy(items, indexOf(id) + 1, items, indexOf(id), position - indexOf(id));
+            items[position] = null;
+            position--;
+            return true;
+        }
     }
 }

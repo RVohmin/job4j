@@ -38,6 +38,7 @@ public class Tracker {
 
     /**
      * Метод возвращает все элементы массива items урезая его длину (без null элементов items)
+     *
      * @return все элементы массива items без null элементов items
      */
     public Item[] findAll() {
@@ -52,8 +53,8 @@ public class Tracker {
     }
 
     /**
-     *
      * @param key - имя элемента массива Items
+     *
      * @return - Items[] contains all elements with name match key
      */
     public Item[] findByName(String key) {
@@ -71,17 +72,29 @@ public class Tracker {
     }
 
     /**
-     *
      * @param id id
+     *
      * @return element of Item[] with search id
      */
     public Item findById(String id) {
-        Item[] actualItem = findAll();
-        for (Item item : actualItem) {
-            if ((item.getId()).equals(id)) {
-                return item;
+        return items[indexOf(id)];
+    }
+
+    private int indexOf(String id) {
+        int rsl = -1;
+        for (int index = 0; index < position; index++) {
+            if (items[index].getId().equals(id)) {
+                rsl = index;
+                break;
             }
         }
-        return null;
+        return rsl;
+    }
+
+    public boolean replace(String id, Item item) {
+        int index = indexOf(id);
+        items[index] = item;
+        items[index].setId(id);
+        return items[index] == item && items[index].getId().equals(id);
     }
 }

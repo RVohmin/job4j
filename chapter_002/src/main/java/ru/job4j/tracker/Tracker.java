@@ -57,17 +57,15 @@ public class Tracker {
      * @return - Items[] contains all elements with name match key
      */
     public Item[] findByName(String key) {
-        Item[] actualItem = findAll();
-        Item[] arrayWithKey = new Item[findAll().length];
+        Item[] arrayWithKey = new Item[position];
         int size = 0;
-        for (Item item : actualItem) {
-            if (item.getName().equals(key)) {
-                arrayWithKey[size] = item;
+        for (int i = 0; i < position; i++) {
+            if (items[i].getName().equals(key)) {
+                arrayWithKey[size] = items[i];
                 size++;
             }
         }
-        arrayWithKey = Arrays.copyOf(arrayWithKey, size);
-        return arrayWithKey;
+        return Arrays.copyOf(arrayWithKey, size);
     }
 
     /**

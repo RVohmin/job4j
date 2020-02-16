@@ -113,7 +113,7 @@ public class Tracker {
         if (index == -1) {
             return false;
         } else {
-            System.arraycopy(items, indexOf(id) + 1, items, indexOf(id), position - indexOf(id));
+            System.arraycopy(items, index + 1, items, index, position - index);
             items[position] = null;
             position--;
             return true;

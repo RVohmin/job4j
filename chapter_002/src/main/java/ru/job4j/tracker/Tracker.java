@@ -47,8 +47,7 @@ public class Tracker {
                 itemsWithoutNull[i] = items[i];
             }
         }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, position);
-        return itemsWithoutNull;
+        return Arrays.copyOf(itemsWithoutNull, position);
     }
 
     /**

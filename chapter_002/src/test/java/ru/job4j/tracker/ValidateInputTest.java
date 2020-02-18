@@ -15,7 +15,7 @@ public class ValidateInputTest {
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"one", "1"})
+                new StubInput(new String[] {"on", "1"})
         );
         input.askInt("Enter");
         assertThat(

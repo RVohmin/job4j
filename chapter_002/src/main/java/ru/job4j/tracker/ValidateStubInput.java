@@ -15,6 +15,6 @@ public class ValidateStubInput extends ValidateInput {
 
     @Override
     public int askInt(String question, int max) {
-        return askInt(question);
+        return super.askInt(question, max);
     }
 }

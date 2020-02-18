@@ -24,12 +24,14 @@ public class ValidateInputTest {
         System.setOut(out);
     }
 
+
+
     @Test
     public void whenInvalidMaxInput() {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
-        String[] data = {"8", "8"};
+        String[] data = {"8", "1"};
         ValidateInput input = new ValidateStubInput(data);
         input.askInt("8", 6);
         assertThat(

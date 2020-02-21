@@ -31,9 +31,9 @@ public class ValidateInputTest {
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"8", "1"})
+                new StubInput(new String[] {"6", "2"})
         );
-        input.askInt("8", 6);
+        input.askInt("select", 6);
         assertThat(
                 mem.toString(),
                 is("Please select key from menu.\n")

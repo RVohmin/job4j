@@ -8,20 +8,19 @@ public class PhoneDictionary {
     public void add(Person person) {
         this.persons.add(person);
     }
+
     /**
      * Вернуть список всех пользователей, который содержат key в любых полях.
+     *
      * @param key Ключ поиска.
+     *
      * @return Список подощедщих пользователей.
      */
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for (Person item : persons) {
-            String[] listFields = new String[] {item.getName(), item.getSurname(), item.getPhone(), item.getAddress()};
-            for (String field : listFields) {
-                if (field.contains(key)) {
-                    result.add(item);
-                    break;
-                }
+            if (item.getName().contains(key) || item.getSurname().contains(key) || item.getPhone().contains(key) || item.getAddress().contains(key)) {
+                result.add(item);
             }
         }
         return result;

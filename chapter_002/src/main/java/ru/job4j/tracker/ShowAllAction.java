@@ -10,9 +10,7 @@ public class ShowAllAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("==== Show All Item ====");
-        for (Item item : tracker.items) {
-            System.out.println(String.format("%s %s", item.getId(), item.getName()));
-        }
+        tracker.findAll();
         return true;
     }
 }

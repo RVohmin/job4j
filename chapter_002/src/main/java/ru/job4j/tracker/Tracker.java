@@ -10,7 +10,7 @@ public class Tracker {
     /**
      * Массив для хранения заявок.
      */
-    List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     /**
      * Метод добавления заявки в хранилище
@@ -40,6 +40,9 @@ public class Tracker {
      * @return все элементы массива items без null элементов items
      */
     public List<Item> findAll() {
+        for (Item item : items) {
+            System.out.println(String.format("%s %s", item.getId(), item.getName()));
+        }
         return items;
     }
 
@@ -55,7 +58,6 @@ public class Tracker {
                 listWithKey.add(item);
             }
         }
-
         return listWithKey;
     }
 
@@ -73,18 +75,26 @@ public class Tracker {
         return null;
     }
 
+    private int findIndexByID(String id) {
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                return items.indexOf(item);
+            }
+        }
+        return -1;
+    }
+
     /**
      * @param id   id
      * @param item item
      */
     public boolean replace(String id, Item item) {
-        boolean rsl = false;
-        if (findById(id) != null) {
-            int index = items.indexOf(findById(id));
+        int index = findIndexByID(id);
+        if (index != -1) {
             items.set(index, item);
             items.get(index).setId(id);
         }
-        return findById(id) != null;
+        return index != -1;
     }
 
     /**
@@ -93,9 +103,12 @@ public class Tracker {
      * @param id id
      */
     public boolean delete(String id) {
-        if (findById(id) != null) {
-            items.remove(findById(id));
+        int index = findIndexByID(id);
+        if (index != -1) {
+            items.remove(index);
         }
-        return findById(id) != null;
+        return index != -1;
     }
+
+
 }

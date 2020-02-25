@@ -76,10 +76,12 @@ public class Tracker {
     }
 
     private int findIndexByID(String id) {
+        int index = 0;
         for (Item item : items) {
             if (item.getId().equals(id)) {
-                return items.indexOf(item);
+                return index;
             }
+            index++;
         }
         return -1;
     }

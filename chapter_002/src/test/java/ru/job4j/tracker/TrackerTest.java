@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -43,7 +44,7 @@ public class TrackerTest {
         expected.add(item4);
         expected.add(item5);
 
-        ArrayList<Item> result = tracker.findAll();
+        List<Item> result = tracker.findAll();
         assertThat(expected, is(result));
     }
     @Test // проверяем метод поиска по имени
@@ -64,7 +65,7 @@ public class TrackerTest {
         expected.add(item2);
         expected.add(item4);
         expected.add(item5);
-        ArrayList<Item> result = tracker.findByName("test2");
+        List<Item> result = tracker.findByName("test2");
         assertThat(expected, is(result));
     }
 

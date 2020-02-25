@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
@@ -34,8 +36,14 @@ public class TrackerTest {
         tracker.add(item3);
         tracker.add(item4);
         tracker.add(item5);
-        Item[] expected = {item1, item2, item3, item4, item5};
-        Item[] result = tracker.findAll();
+        ArrayList<Item> expected = new ArrayList<>();
+        expected.add(item1);
+        expected.add(item2);
+        expected.add(item3);
+        expected.add(item4);
+        expected.add(item5);
+
+        ArrayList<Item> result = tracker.findAll();
         assertThat(expected, is(result));
     }
     @Test // проверяем метод поиска по имени
@@ -52,12 +60,15 @@ public class TrackerTest {
         tracker.add(item3);
         tracker.add(item4);
         tracker.add(item5);
-        Item[] expected = {item2, item4, item5};
-        Item[] result = tracker.findByName("test2");
+        ArrayList<Item> expected = new ArrayList<>();
+        expected.add(item2);
+        expected.add(item4);
+        expected.add(item5);
+        ArrayList<Item> result = tracker.findByName("test2");
         assertThat(expected, is(result));
     }
 
-    @Test // проверяем метод findAll
+    @Test // проверяем метод findById
     public void whenAdd5ItemsAddThenTheyAllInTracker() {
         Tracker tracker = new Tracker();
         Item item1 = new Item("test1");

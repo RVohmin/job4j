@@ -13,14 +13,7 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        for (Map.Entry<User, List<Account>> entry : users.entrySet()) {
-            User key = entry.getKey();
-            List<Account> value = entry.getValue();
-            if (key.equals(findByPassport(passport))) {
-                value.add(account);
-                break;
-            }
-        }
+        users.get(findByPassport(passport)).add(account);
     }
 
     public User findByPassport(String passport) {
@@ -33,16 +26,10 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        for (Map.Entry<User, List<Account>> entry : users.entrySet()) {
-            User key = entry.getKey();
-            List<Account> value = entry.getValue();
-            if (user.equals(key)) {
-                for (Account acc : value) {
-                    if (acc.getRequisite().equals(requisite)) {
-                        return acc;
-                    }
-                }
+        List<Account> accList = users.get(findByPassport(passport));
+        for (Account account : accList) {
+            if (account.getRequisite().equals(requisite)) {
+                return account;
             }
         }
         return null;

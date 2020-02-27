@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Item {
     private String id;
@@ -26,10 +27,6 @@ public class Item {
         this.name = name;
     }
 
-    //    @Override
-//    public int compare(Item first, Item second) {
-//        return first.getId().compareTo(second.getId());
-//    }
     @Override
     public String toString() {
         return "Item{"
@@ -38,8 +35,21 @@ public class Item {
                 + '}';
     }
 
-//    @Override
-//    public int compareTo(Item o) {
-//        return CharSequence.compare(name, o.name);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Item)) {
+            return false;
+        }
+        Item item = (Item) o;
+        return Objects.equals(getId(), item.getId())
+                && Objects.equals(getName(), item.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName());
+    }
 }

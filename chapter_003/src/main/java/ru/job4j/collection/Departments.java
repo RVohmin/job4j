@@ -32,12 +32,10 @@ public class Departments {
 
     public static void main(String[] args) {
         List<String> input = Arrays.asList("K1/SK1/SSK1", "K2/SK1/SSK1", "K1/SK1/SSK2", "K1/SK2", "K1/SK1", "K2/SK1/SSK2");
+        System.out.println("Входной массив:                              " + input);
         List<String> list = fillGaps(input);
-        System.out.println(list);
-        sortAsc(list);
-        System.out.println(list);
+        System.out.println("Результат метода, отсортированная коллекция: " + list);
         sortDesc(list);
-        System.out.println(list);
-
+        System.out.println("Обратная сортировка по условиям задачи:      " + list);
     }
 }

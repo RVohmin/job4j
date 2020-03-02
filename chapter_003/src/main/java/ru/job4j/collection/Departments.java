@@ -11,8 +11,7 @@ public class Departments {
                 if (start.length() == 0) {
                     start = el;
                     tmp.add(start);
-                }
-                if (el.length() - start.length() == 1) {
+                } else if (el.length() - start.length() == 1) {
                     tmp.add(start + "/" + el);
                 }
             }
@@ -22,13 +21,13 @@ public class Departments {
         sortAsc(list);
         return list;
     }
-
     public static void sortAsc(List<String> orgs) {
         Collections.sort(orgs);
     }
 
     public static void sortDesc(List<String> orgs) {
-        orgs.sort(new DepDescComp());
+        Collections.sort(orgs, new DepDescComp());
+//        orgs.sort(new DepDescComp());
     }
 
     public static void main(String[] args) {

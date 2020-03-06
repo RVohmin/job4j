@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class StartUI {
 
@@ -17,9 +18,10 @@ public class StartUI {
     }
 
     private void showMenu(List<UserAction> actions) {
-        System.out.println("Menu.");
+        Consumer<String> show = System.out::println;
+        show.accept("Menu.");
         for (UserAction item : actions) {
-            System.out.println(actions.indexOf(item) + ". " + item.name());
+            show.accept(actions.indexOf(item) + ". " + item.name());
         }
     }
 

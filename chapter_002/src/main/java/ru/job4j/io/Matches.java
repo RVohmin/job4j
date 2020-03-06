@@ -26,5 +26,6 @@ public class Matches {
         } else if (matches == 0) {
             System.out.println("Игра окончена, спичек не осталось, выиграл игрок 2");
         }
+        input.close();
     }
 }

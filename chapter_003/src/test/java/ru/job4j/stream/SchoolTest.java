@@ -13,15 +13,15 @@ public class SchoolTest {
     @Test
     public void whenFilterStudentsByOver70Then3Students() {
         List<Student> students = Arrays.asList(
-                new Student(81),
-                new Student(91),
-                new Student(71),
-                new Student(69),
-                new Student(59),
-                new Student(55),
-                new Student(49),
-                new Student(45),
-                new Student(40)
+                new Student(81, "ivanov"),
+                new Student(91, "petrov"),
+                new Student(71, "putin"),
+                new Student(69, "lenin"),
+                new Student(59, "stalin"),
+                new Student(55, "pupkin"),
+                new Student(49, "sidorov"),
+                new Student(45, "smith"),
+                new Student(40, "popov")
         );
         School mySchool = new School();
         List<Student> classA = mySchool.collect(students, x -> x.getScore() >= 70);
@@ -31,15 +31,15 @@ public class SchoolTest {
     @Test
     public void whenFilterStudentsFrom50To70Then2Students() {
         List<Student> students = Arrays.asList(
-                new Student(81),
-                new Student(91),
-                new Student(71),
-                new Student(69),
-                new Student(59),
-                new Student(55),
-                new Student(49),
-                new Student(45),
-                new Student(40)
+                new Student(81, "ivanov"),
+                new Student(91, "petrov"),
+                new Student(71, "putin"),
+                new Student(69, "lenin"),
+                new Student(59, "stalin"),
+                new Student(55, "pupkin"),
+                new Student(49, "sidorov"),
+                new Student(45, "smith"),
+                new Student(40, "popov")
         );
         School mySchool = new School();
         List<Student> classB = mySchool.collect(students, x -> x.getScore() >= 50 && x.getScore() < 70);
@@ -49,15 +49,15 @@ public class SchoolTest {
     @Test
     public void whenFilterStudentsLessBy50Then3Students() {
         List<Student> students = Arrays.asList(
-                new Student(81),
-                new Student(91),
-                new Student(71),
-                new Student(69),
-                new Student(59),
-                new Student(55),
-                new Student(49),
-                new Student(45),
-                new Student(40)
+                new Student(81, "ivanov"),
+                new Student(91, "petrov"),
+                new Student(71, "putin"),
+                new Student(69, "lenin"),
+                new Student(59, "stalin"),
+                new Student(55, "pupkin"),
+                new Student(49, "sidorov"),
+                new Student(45, "smith"),
+                new Student(40, "popov")
         );
         School mySchool = new School();
         List<Student> classC = mySchool.collect(students, x -> x.getScore() < 50);

@@ -24,4 +24,21 @@ public class ProfileTest {
         List<Address> expected = Arrays.asList(add1, add2, add3);
         assertThat(expected, is(profiles.collect(list)));
     }
+    @Test
+    public void getUniqAdressesFromProfiles() {
+        Address add1 = new Address("Moscow", "Lenina", 15, 23);
+        Address add2 = new Address("Omsk", "Stalina", 10, 21);
+        Address add3 = new Address("Omsk", "Stalina", 10, 21);
+        Address add4 = new Address("Tomsk", "street", 12, 24);
+
+        List<Profile> list = Arrays.asList(
+                new Profile(add1),
+                new Profile(add2),
+                new Profile(add3),
+                new Profile(add4)
+        );
+        Profiles profiles = new Profiles();
+        List<Address> expected = Arrays.asList(add1, add2, add4);
+        assertThat(expected, is(profiles.collectAddressSorted(list)));
+    }
 }

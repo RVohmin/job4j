@@ -31,14 +31,14 @@ public class ProfileTest {
         Address add3 = new Address("Omsk", "Stalina", 10, 21);
         Address add4 = new Address("Tomsk", "street", 12, 24);
 
-        List<Profile> list = Arrays.asList(
+        List<Profile> list = List.of(
                 new Profile(add1),
                 new Profile(add2),
                 new Profile(add3),
                 new Profile(add4)
         );
         Profiles profiles = new Profiles();
-        List<Address> expected = Arrays.asList(add1, add2, add4);
+        List<Address> expected = List.of(add1, add2, add4);
         assertThat(expected, is(profiles.collectAddressSorted(list)));
     }
 }

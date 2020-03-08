@@ -2,7 +2,6 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -12,7 +11,7 @@ public class SchoolTest {
 
     @Test
     public void whenFilterStudentsByOver70Then3Students() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student(81, "ivanov"),
                 new Student(91, "petrov"),
                 new Student(71, "putin"),
@@ -30,7 +29,7 @@ public class SchoolTest {
 
     @Test
     public void whenFilterStudentsFrom50To70Then2Students() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student(81, "ivanov"),
                 new Student(91, "petrov"),
                 new Student(71, "putin"),
@@ -48,7 +47,7 @@ public class SchoolTest {
 
     @Test
     public void whenFilterStudentsLessBy50Then3Students() {
-        List<Student> students = Arrays.asList(
+        List<Student> students = List.of(
                 new Student(81, "ivanov"),
                 new Student(91, "petrov"),
                 new Student(71, "putin"),

@@ -32,7 +32,7 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         List<Account> accList = users.get(findByPassport(passport));
-        return accList.stream().filter(e -> e.getRequisite().equals(requisite)).collect(Collectors.toList()).get(0);
+        return accList.stream().filter(e -> e.getRequisite().equals(requisite)).findFirst().orElse(null);
 //        for (Account account : accList) {
 //            if (account.getRequisite().equals(requisite)) {
 //                return account;

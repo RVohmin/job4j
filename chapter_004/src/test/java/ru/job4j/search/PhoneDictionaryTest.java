@@ -10,6 +10,7 @@ import static org.hamcrest.core.Is.is;
 public class PhoneDictionaryTest {
     @Test
     public void whenFindByName() {
+        boolean after = true;
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")

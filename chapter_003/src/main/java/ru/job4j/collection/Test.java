@@ -1,10 +1,12 @@
 package ru.job4j.collection;
 
-import java.util.Map;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Test {
     public static void main(String[] args) {
-        Map.of("first", 1, "second", 2)
-                .forEach((v, k) -> System.out.println(String.format("%s %s", v, k)));
+        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+        IntStream stream = Arrays.stream(arr).flatMapToInt(Arrays::stream);
+        stream.forEach(System.out::print);
     }
 }

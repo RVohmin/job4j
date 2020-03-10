@@ -33,16 +33,13 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String outPassport, String outRequisite,
                                  double amount) {
-        boolean rsl = true;
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account outAccount = findByRequisite(outPassport, outRequisite);
-        if (account == null || outAccount == null || account.getBalance() < amount) {
-            rsl = false;
-        }
-        assert account != null;
+//        if (account == null || outAccount == null || account.getBalance() < amount) {
+//            return false;
+//        }
         account.setBalance(account.getBalance() - amount); // списание с отправителя
-        assert outAccount != null;
         outAccount.setBalance(outAccount.getBalance() + amount); // зачисление на счет получателя
-        return rsl;
+        return true;
     }
 }

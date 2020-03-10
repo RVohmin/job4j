@@ -10,4 +10,11 @@ public class Holder {
 
     public Holder(String s) {
     }
+
+    @Override
+    public String toString() {
+        return "Holder{"
+                + "key='" + key + '\''
+                + ", value='" + value + '\'' + '}';
+    }
 }

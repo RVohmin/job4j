@@ -13,13 +13,6 @@ public class Defragment {
                     }
                     j++;
                 }
-//                for (int j = index; j < array.length; j++) {
-//                    if (array[j] != null) {
-//                        array[index] = array[j];
-//                        array[j] = null;
-//                        break;
-//                    }
-//                }
             }
             System.out.print(array[index] + " ");
         }

@@ -19,11 +19,6 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-//        for (User user : users.keySet()) {
-//            if (user.getPassport().equals(passport)) {
-//                return user;
-//            }
-//        }
         return users.keySet()
                 .stream()
                 .filter(e -> e.getPassport().equals(passport))
@@ -33,24 +28,21 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         List<Account> accList = users.get(findByPassport(passport));
         return accList.stream().filter(e -> e.getRequisite().equals(requisite)).findFirst().orElse(null);
-//        for (Account account : accList) {
-//            if (account.getRequisite().equals(requisite)) {
-//                return account;
-//            }
-//        }
-//        return null;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String outPassport, String outRequisite,
                                  double amount) {
+        boolean rsl = true;
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account outAccount = findByRequisite(outPassport, outRequisite);
         if (account == null || outAccount == null || account.getBalance() < amount) {
-            return false;
+            rsl = false;
         }
+        assert account != null;
         account.setBalance(account.getBalance() - amount); // списание с отправителя
+        assert outAccount != null;
         outAccount.setBalance(outAccount.getBalance() + amount); // зачисление на счет получателя
-        return true;
+        return rsl;
     }
 }

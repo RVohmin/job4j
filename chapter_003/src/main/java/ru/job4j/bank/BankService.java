@@ -35,9 +35,9 @@ public class BankService {
                                  double amount) {
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account outAccount = findByRequisite(outPassport, outRequisite);
-//        if (account == null || outAccount == null || account.getBalance() < amount) {
-//            return false;
-//        }
+        if (account == null || outAccount == null || account.getBalance() < amount) {
+            return false;
+        }
         account.setBalance(account.getBalance() - amount); // списание с отправителя
         outAccount.setBalance(outAccount.getBalance() + amount); // зачисление на счет получателя
         return true;
